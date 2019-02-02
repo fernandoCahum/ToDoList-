@@ -1,0 +1,14 @@
+{
+    "name": "fernandoc/php_crud_pdo",
+    "description": "crud con pdo y twig",
+    "type": "project",
+    "license": "UNLICENSED",
+    "authors": [
+        {
+            "name": "fernandocahum",
+            "email": "fcbacab@hotmail.com"
+        }
+    ],
+    "require": {
+    }
+}
