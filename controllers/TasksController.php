@@ -14,8 +14,8 @@ class TasksController {
 		return $this->model->read( $idUser, $idTask );
 	}
 
-	public function update ( $idTask = '' ){
-		return $this->model->update( $idTask );
+	public function update ( $taskData = [] ){
+		return $this->model->update( $taskData );
 	}
 
 	public function delete ( $idTask = '' ) {

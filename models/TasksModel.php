@@ -20,7 +20,7 @@ class TasksModel extends Model{
 			$this->query = "SELECT t.id_tarea, t.titulo, t.descripcion, t.completado AS completado FROM tareas AS t INNER JOIN usuarios AS u ON t.id_usuario = u.id WHERE u.id = :idUser";
 			$this->params = ['idUser' => $idUser];
 		} else {
-			$this->query = "SELECT t.id_tarea, t.titulo, t.descripcion, t.completado AS completado FROM tareas AS t INNER JOIN usuarios AS u ON t.id_usuario = u.id WHERE u.id = :idUser AND t.id_tarea = :idTask";
+			$this->query = "SELECT t.id_tarea, t.titulo, t.descripcion, t.completado AS completado, t.created_at AS creado FROM tareas AS t INNER JOIN usuarios AS u ON t.id_usuario = u.id WHERE u.id = :idUser AND t.id_tarea = :idTask";
 			$this->params = ['idUser' => $idUser, 'idTask' => $idTask];
 		}
 
@@ -34,8 +34,19 @@ class TasksModel extends Model{
 		return $data;
 	}
 
-	public function update (){
-		
+	public function update ( $taskData = []){
+		foreach ($taskData as $key => $value) {
+			$$key = $value;
+		}
+		$this->query = "UPDATE tareas SET titulo = :titulo, descripcion = :descripcion, completado = :completado, updated_at = :updated_at WHERE id_tarea = :idTask ";
+		$this->params = [
+			'titulo' => $titulo,
+			'descripcion' => $descripcion,
+			'completado' => $completado,
+			'updated_at' => $updated_at,
+			'idTask' => $idTask
+		];
+		$this->set_query();
 	}
 
 	public function delete ( $idTask = '' ){

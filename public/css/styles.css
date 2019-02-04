@@ -144,3 +144,12 @@
 		transform: rotateX(0);
 	}
 }
+
+.flex-container{
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row-reverse;
+}
+.switch{
+	margin-bottom: 1.5rem;
+}

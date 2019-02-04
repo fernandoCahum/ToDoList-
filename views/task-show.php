@@ -6,12 +6,15 @@ if($_POST['uri'] == 'task-show' && isset($_POST['task_id'])):
 	$templateTask = '
 	<div class="row">
 		<div class="col s12 m6 ">
-			<div class="card blue-grey darken-1">
+			<div class="card green darken-3">
 				<div class="card-content white-text">
-					<span class="card-title"> '. $task[0]['titulo'] .' </span>
+					<div class="flex-container">
+						<span> Creado: ' . date('Y/m/d', strtotime($task[0]['creado'] )). ' </span>
+						<span class="card-title"> '. $task[0]['titulo'] .' </span>
+					</div>
 					<p> '. ucfirst($task[0]['descripcion']) .' </p>
 				</div>
-				<div class="card-action">
+				<div class="card-action white-text">
 					Status: ' . strtoupper($status) . '
 				</div>
 			</div>
